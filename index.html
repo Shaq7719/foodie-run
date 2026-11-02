@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOODIE RUN 2.0 — EAT · RUN · REPEAT | USIM FPBU</title>
+    <meta name="description" content="FOODIE RUN 2.0 di USIM — Larian 5KM paling santai & sedap! Nikmati makanan di setiap checkpoint pada 12 Disember 2026 di Dewan Utama FPBU. Daftar sekarang!">
+    <meta name="keywords" content="Foodie Run 2.0, USIM, FPBU, Fun Run 5KM, Larian Santai Nilai, Tullabiyah USIM">
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="FOODIE RUN 2.0 — EAT · RUN · REPEAT | USIM FPBU">
+    <meta property="og:description" content="Setiap checkpoint ada makanan tau! Jom join larian 5KM santai pada 12 Disember 2026. Tullabiyah direkodkan!">
+    <meta property="og:image" content="images/poster-main.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Bangers&display=swap" rel="stylesheet">
+    
+    <!-- Canvas Confetti for Celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍩</text></svg>">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-inner">
+            <div class="loader-food">🍜</div>
+            <div class="loader-text">Sedang Menyediakan Foodie Run 2.0...</div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- Floating Food Particles -->
+    <div id="food-particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">🏃‍♂️</span>
+                <span class="logo-text">FOODIE<span class="logo-highlight">RUN</span> <small>2.0</small></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link active">Utama</a></li>
+                <li><a href="#about" class="nav-link">Mengenai</a></li>
+                <li><a href="#package" class="nav-link">Pakej & Harga</a></li>
+                <li><a href="#route-map" class="nav-link">Laluan & Makanan</a></li>
+                <li><a href="#entitlements" class="nav-link">Kelengkapan</a></li>
+                <li><a href="#medals" class="nav-link">Pingat 3D</a></li>
+                <li><a href="#schedule" class="nav-link">Jadual</a></li>
+                <li><a href="#faq" class="nav-link">Soalan Lazim</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://forms.gle/WTjtDWaDEmkFmA9m6" target="_blank" rel="noopener noreferrer" class="nav-cta direct-register-link">
+                    <span>Daftar Sekarang</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#hero" class="mobile-link">Utama</a></li>
+            <li><a href="#about" class="mobile-link">Mengenai</a></li>
+            <li><a href="#package" class="mobile-link">Pakej & Harga</a></li>
+            <li><a href="#route-map" class="mobile-link">Laluan & Makanan</a></li>
+            <li><a href="#entitlements" class="mobile-link">Kelengkapan</a></li>
+            <li><a href="#medals" class="mobile-link">Pingat 3D</a></li>
+            <li><a href="#schedule" class="mobile-link">Jadual</a></li>
+            <li><a href="#faq" class="mobile-link">Soalan Lazim</a></li>
+            <li>
+                <a href="https://forms.gle/WTjtDWaDEmkFmA9m6" target="_blank" rel="noopener noreferrer" class="mobile-link cta direct-register-link">
+                    Daftar Sekarang (Google Form) 🎉
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge animate-on-scroll">
+                <span class="badge-dot"></span>
+                FAKULTI PENGAJIAN BAHASA UTAMA (FPBU) · USIM
+            </div>
+            <h1 class="hero-title animate-on-scroll">
+                <span class="title-line-1">FOODIE</span>
+                <span class="title-line-2">RUN <span class="title-version">2.0</span></span>
+            </h1>
+            <p class="hero-tagline animate-on-scroll">EAT · RUN · REPEAT</p>
+            
+            <div class="hero-details animate-on-scroll">
+                <div class="hero-detail">
+                    <span class="detail-icon">📅</span>
+                    <span class="detail-text">12 Disember 2026 (Sabtu)</span>
+                </div>
+                <div class="hero-divider"></div>
+                <div class="hero-detail">
+                    <span class="detail-icon">⏰</span>
+                    <span class="detail-text">7:30 AM – 12:30 PM</span>
+                </div>
+                <div class="hero-divider"></div>
+                <div class="hero-detail">
+                    <span class="detail-icon">📍</span>
+                    <span class="detail-text">Dewan Utama FPBU, USIM</span>
+                </div>
+            </div>
+
+            <!-- Event Highlights Badges -->
+            <div class="hero-tags animate-on-scroll">
+                <span class="hero-tag highlight-tag">🏁 Kategori 5KM</span>
+                <span class="hero-tag success-tag">✅ Tullabiyah Direkodkan</span>
+                <span class="hero-tag food-tag">🍜 Makanan di Setiap Checkpoint</span>
+                <span class="hero-tag medal-tag">🧲 Pingat Magnetic & Spin-able</span>
+            </div>
+
+            <!-- Main Event Countdown -->
+            <div class="countdown-section animate-on-scroll">
+                <h3 class="countdown-label">⏳ Larian Bermula Dalam</h3>
+                <div class="countdown" id="eventCountdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-unit">Hari</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-unit">Jam</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-unit">Minit</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-unit">Saat</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Deadline Notice -->
+            <div class="reg-deadline animate-on-scroll">
+                <div class="reg-deadline-inner">
+                    <span class="reg-icon">🔥</span>
+                    <div class="reg-text">
+                        <span class="reg-label">Pendaftaran Ditutup</span>
+                        <span class="reg-date">30 November 2026 · 11:59 PM</span>
+                    </div>
+                    <div class="reg-countdown" id="regCountdown">
+                        <span id="regDays">00</span>h
+                        <span id="regHours">00</span>j
+                        <span id="regMinutes">00</span>m
+                        <span id="regSeconds">00</span>s
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-actions animate-on-scroll">
+                <a href="https://forms.gle/WTjtDWaDEmkFmA9m6" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-glow direct-register-link">
+                    <span>Daftar Sekarang (Google Form) — RM45</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#about" class="btn btn-secondary">
+                    <span>Info Penuh Acara ↓</span>
+                </a>
+                <button class="btn btn-ghost trigger-sizechart-modal">
+                    <span>📏 Carta Saiz Jersey</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-dot"></div>
+            </div>
+            <span>Skrol untuk terokai</span>
+        </div>
+    </section>
+
+    <!-- Stats & Highlight Ticker -->
+    <section class="stats-ticker">
+        <div class="ticker-content">
+            <div class="stat-item">
+                <span class="stat-number" data-target="5">0</span><span class="stat-suffix">KM</span>
+                <span class="stat-label">Larian Santai (Fun Run)</span>
+            </div>
+            <div class="stat-divider">🍩</div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="45">0</span><span class="stat-suffix"> RM</span>
+                <span class="stat-label">Early Bird Promo</span>
+            </div>
+            <div class="stat-divider">🍜</div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="50">0</span><span class="stat-suffix"> RM</span>
+                <span class="stat-label">Harga Biasa (Normal)</span>
+            </div>
+            <div class="stat-divider">🧋</div>
+            <div class="stat-item stat-food-box">
+                <span class="stat-emoji">🍭</span>
+                <span class="stat-label-lg">"Setiap checkpoint ada makanan tau,<br>memang berbaloi join!"</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Poster Showcase -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Jom Kenali Foodie Run</span>
+                <h2 class="section-title">Mengenai <span class="highlight">Foodie Run 2.0</span></h2>
+                <div class="section-divider"><span>🍕</span></div>
+                <p class="section-subtitle">Gabungan larian santai, pesta makanan tempatan dan gaya hidup sihat untuk warga USIM & orang ramai!</p>
+            </div>
+
+            <div class="about-content-grid">
+                <div class="about-poster-wrapper animate-on-scroll">
+                    <div class="poster-frame">
+                        <img src="images/poster-main.jpg" alt="Poster Rasmi Foodie Run 2.0" class="about-poster-img" loading="lazy">
+                        <div class="poster-overlay">
+                            <button class="poster-zoom-btn" id="viewPosterFullBtn">
+                                🔍 Lihat Poster Penuh
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text-side">
+                    <div class="about-card animate-on-scroll" style="--delay: 0.1s">
+                        <div class="about-card-icon">🏃‍♀️</div>
+                        <div>
+                            <h3>Larian 5KM Santai (Fun Run)</h3>
+                            <p>Dianjurkan oleh <strong>Fakulti Pengajian Bahasa Utama (FPBU), USIM</strong>. Terbuka kepada semua — pelajar, staf USIM, keluarga, mahupun peminat larian dari luar!</p>
+                        </div>
+                    </div>
+
+                    <div class="about-card animate-on-scroll" style="--delay: 0.2s">
+                        <div class="about-card-icon">🍩</div>
+                        <div>
+                            <h3>Tasty Treats at Every Checkpoint</h3>
+                            <p>Tak sempat lapar! Di setiap checkpoint sepanjang laluan 5KM, anda akan dihidangkan snek lazat, pencuci mulut, buah-buahan dan minuman menyegarkan.</p>
+                        </div>
+                    </div>
+
+                    <div class="about-card animate-on-scroll" style="--delay: 0.3s">
+                        <div class="about-card-icon">🎓</div>
+                        <div>
+                            <h3>Tullabiyah Direkodkan untuk Mahasiswa</h3>
+                            <p>Kelebihan istimewa untuk mahasiswa USIM! Penyertaan program ini akan direkodkan di dalam merit kokurikulum (Tullabiyah). Sihat dapat, merit pun dapat!</p>
+                        </div>
+                    </div>
+
+                    <div class="about-card animate-on-scroll" style="--delay: 0.4s">
+                        <div class="about-card-icon">🧲</div>
+                        <div>
+                            <h3>Pingat Inovatif: Magnetic & Spin-able</h3>
+                            <p>Pingat edisi terhad 2.0 didatangkan khas dengan fungsi berputar (spin-able) dan magnetik. Aksesori koleksi yang pasti membuat anda bangga!</p>
+                        </div>
+                    </div>
+
+                    <!-- Fast Mascot Row -->
+                    <div class="mascot-bar animate-on-scroll" style="--delay: 0.5s">
+                        <span class="mascot-pill">🍞 Roti Sihat</span>
+                        <span class="mascot-pill">🍌 Pisang Pantas</span>
+                        <span class="mascot-pill">🧋 Boba Ceria</span>
+                        <span class="mascot-pill">🍩 Donat Go Go!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package & Pricing Section -->
+    <section id="package" class="package section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Pilihan Rasmi</span>
+                <h2 class="section-title">Pakej & <span class="highlight">Yuran Pendaftaran</span></h2>
+                <div class="section-divider"><span>🎁</span></div>
+                <p class="section-subtitle">Daftar awal untuk menikmati harga promosi Early Bird sebelum tarikh tutup!</p>
+            </div>
+
+            <div class="package-layout">
+                <!-- Main Package Card -->
+                <div class="package-card featured animate-on-scroll">
+                    <div class="package-popular-tag">⭐ PAKEJ A (5KM)</div>
+                    <div class="package-head">
+                        <span class="package-subtitle">Kategori Rasmi 5KM</span>
+                        <h3 class="package-title">PAKEJ LENGKAP RUNNER</h3>
+                        <p class="package-desc">Segala kelengkapan rasmi larian termasuk jersey berkualiti tinggi, pingat magnetik berputar, nombor bib dan e-sijil.</p>
+                    </div>
+
+                    <div class="pricing-dual-box">
+                        <div class="price-box normal">
+                            <span class="price-type">HARGA BIASA</span>
+                            <div class="price-val struck">RM 50</div>
+                            <span class="price-note">Bermula selepas early bird</span>
+                        </div>
+                        <div class="price-box early active">
+                            <span class="early-badge">🔥 TERHAD!</span>
+                            <span class="price-type">EARLY BIRD</span>
+                            <div class="price-val glow">RM 45</div>
+                            <span class="price-note">Jimat RM5 dengan daftar awal</span>
+                        </div>
+                    </div>
+
+                    <div class="package-feature-list">
+                        <div class="p-feature-item">
+                            <span class="p-feat-icon">👕</span>
+                            <div>
+                                <strong>Jersey Rasmi Dry-Fit Microfibre</strong>
+                                <span>Reka bentuk eksklusif bertemakan navy & percikan warna ceria Foodie Run 2.0</span>
+                            </div>
+                        </div>
+                        <div class="p-feature-item">
+                            <span class="p-feat-icon">🏅</span>
+                            <div>
+                                <strong>Pingat Finisher (Magnetic & Spin-able)</strong>
+                                <span>Pingat 3D boleh pusing dengan pelekat magnetik edisi terhad</span>
+                            </div>
+                        </div>
+                        <div class="p-feature-item">
+                            <span class="p-feat-icon">🔢</span>
+                            <div>
+                                <strong>Race Bib Khas dengan Maskot</strong>
+                                <span>Nombor larian bernombor siri beserta pin keselamatan</span>
+                            </div>
+                        </div>
+                        <div class="p-feature-item">
+                            <span class="p-feat-icon">📜</span>
+                            <div>
+                                <strong>E-Sijil Pencapaian Rasmi</strong>
+                                <span>Sijil digital rasmi pengiktirafan FPBU USIM</span>
+                            </div>
+                        </div>
+                        <div class="p-feature-item">
+                            <span class="p-feat-icon">🍜</span>
+                            <div>
+                                <strong>Akses Sajian Makanan di Checkpoint</strong>
+                                <span>Snek & minuman percuma di setiap perhentian larian</span>
+                            </div>
+                        </div>
+                        <div class="p-feature-item">
+                            <span class="p-feat-icon">🎓</span>
+                            <div>
+                                <strong>Rekod Jam Tullabiyah (Pelajar USIM)</strong>
+                                <span>Diiktiraf sepenuhnya oleh pihak universiti</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="package-card-actions">
+                        <a href="https://forms.gle/WTjtDWaDEmkFmA9m6" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-glow btn-block direct-register-link">
+                            Daftar Sekarang (Google Form — RM45) ➔
+                        </a>
+                        <button class="btn btn-outline btn-block trigger-sizechart-modal">
+                            📏 Panduan Saiz Jersey
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package Visual Poster Side -->
+                <div class="package-visual-side animate-on-scroll" style="--delay: 0.2s">
+                    <div class="pakej-preview-card">
+                        <img src="images/package-a.jpg" alt="Poster Pakej A Foodie Run 2.0" class="package-img-showcase" loading="lazy">
+                        <div class="google-form-direct-box">
+                            <div class="gf-icon">📝</div>
+                            <div class="gf-info">
+                                <strong>Pendaftaran Rasmi Dalam Talian</strong>
+                                <span>Pendaftaran dibuka terus melalui Google Form rasmi</span>
+                                <a href="https://forms.gle/WTjtDWaDEmkFmA9m6" target="_blank" rel="noopener noreferrer" class="btn-direct-link direct-register-link">Buka Google Form Sekarang ➔</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive 5KM Checkpoint Food Trail Map -->
+    <section id="route-map" class="route-map section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Laluan 5KM Yang Lazat</span>
+                <h2 class="section-title">Checkpoint <span class="highlight">Food Trail</span></h2>
+                <div class="section-divider"><span>🗺️</span></div>
+                <p class="section-subtitle">Setiap kilometer ada kejutan kulinari! Lihat apa yang menanti anda di sepanjang trek FPBU USIM.</p>
+            </div>
+
+            <div class="route-trail-container animate-on-scroll">
+                <div class="trail-step" data-step="0">
+                    <div class="trail-marker start">🚩</div>
+                    <div class="trail-body">
+                        <div class="trail-distance">0.0 KM · MULA</div>
+                        <h4>Dewan Utama FPBU</h4>
+                        <p>Pendaftaran, senamrobik pemanasan badan & pelepasan larian (Flag-off jam 7:30 pagi).</p>
+                        <span class="trail-treat-tag">💧 Air Mineral & Pemanasan</span>
+                    </div>
+                </div>
+
+                <div class="trail-arrow">➔</div>
+
+                <div class="trail-step" data-step="1">
+                    <div class="trail-marker food">🍩</div>
+                    <div class="trail-body">
+                        <div class="trail-distance">1.2 KM · CHECKPOINT 1</div>
+                        <h4>Sweet Tooth Alley</h4>
+                        <p>Donat gebu beraneka topping & kuih-muih tradisional untuk tenaga larian awal.</p>
+                        <span class="trail-treat-tag">🍩 Donat Warna-Warni & Kuih</span>
+                    </div>
+                </div>
+
+                <div class="trail-arrow">➔</div>
+
+                <div class="trail-step" data-step="2">
+                    <div class="trail-marker food">🧋</div>
+                    <div class="trail-body">
+                        <div class="trail-distance">2.5 KM · CHECKPOINT 2</div>
+                        <h4>Boba & Isotonic Oasis</h4>
+                        <p>Minuman teh susu boba sejuk & air isotonik untuk pulihkan elektrolit anda.</p>
+                        <span class="trail-treat-tag">🧋 Fresh Boba & 100PLUS</span>
+                    </div>
+                </div>
+
+                <div class="trail-arrow">➔</div>
+
+                <div class="trail-step" data-step="3">
+                    <div class="trail-marker food">🍌</div>
+                    <div class="trail-body">
+                        <div class="trail-distance">3.8 KM · CHECKPOINT 3</div>
+                        <h4>Speedy Banana Booster</h4>
+                        <p>Pisang segar kaya potasium bagi mengelakkan kekejangan otot & snek bertenaga.</p>
+                        <span class="trail-treat-tag">🍌 Pisang Emas & Buah Segar</span>
+                    </div>
+                </div>
+
+                <div class="trail-arrow">➔</div>
+
+                <div class="trail-step" data-step="4">
+                    <div class="trail-marker finish">🏁</div>
+                    <div class="trail-body">
+                        <div class="trail-distance">5.0 KM · FINISH LINE</div>
+                        <h4>Pesta Makanan & Pingat</h4>
+                        <p>Tahniah! Kalungkan pingat Finisher Magnetic 3D anda, ambil e-sijil dan jamu selera di bazar makanan!</p>
+                        <span class="trail-treat-tag gold">🍱 Nasi Lemak, Roti Bakar & Pingat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entitlements Showcase Section -->
+    <section id="entitlements" class="entitlements section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Barangan Rasmi Anda</span>
+                <h2 class="section-title">Kelengkapan <span class="highlight">Runner</span></h2>
+                <div class="section-divider"><span>✨</span></div>
+                <p class="section-subtitle">Semua barangan direka khas dengan kualiti terbaik untuk kenangan manis Foodie Run 2.0.</p>
+            </div>
+
+            <!-- Jersey Showcase -->
+            <div class="entitlement-showcase animate-on-scroll">
+                <div class="showcase-image">
+                    <img src="images/jersey.jpg" alt="Foodie Run 2.0 Event Jersey" loading="lazy">
+                </div>
+                <div class="showcase-info">
+                    <span class="showcase-tag">Rekaan Eksklusif</span>
+                    <h3>Jersey Rasmi Dry-Fit 👕</h3>
+                    <p>Baju larian mikrogentian premium berona biru gelap (navy) dengan corak percikan seni neon merah jambu, biru sian dan kuning. Bahagian belakang memaparkan teks garang <strong>"FINISHER 5KM"</strong> dan slogan <strong>"EAT. RUN. REPEAT. ♡"</strong>.</p>
+                    <div class="showcase-features">
+                        <span>🎨 Cetakan Sublimasi Penuh</span>
+                        <span>💨 Fabrik Cepat Kering (Dry-Fit)</span>
+                        <span>🏃 Lembut, Ringan & Selesa</span>
+                        <span>📏 Saiz XS sehingga 3XL</span>
+                    </div>
+                    <div class="showcase-btn-row">
+                        <button class="btn btn-secondary trigger-sizechart-modal">
+                            📐 Buka Carta Saiz Jersey
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Race Bib Showcase -->
+            <div class="entitlement-showcase reverse animate-on-scroll">
+                <div class="showcase-image">
+                    <img src="images/race-bib.png" alt="Foodie Run 2.0 Race Bib" loading="lazy">
+                </div>
+                <div class="showcase-info">
+                    <span class="showcase-tag">Comel & Ikonik</span>
+                    <h3>Nombor Larian (Race Bib) 🔢</h3>
+                    <p>Nombor bib larian rasmi berlatarbelakangkan trek larian ceria di bawah langit biru. Menampilkan watak maskot cawan <strong>Boba Tea</strong> yang comel, <strong>Roti Bakar</strong> dan <strong>Pisang</strong> yang sedang bersemangat berlari!</p>
+                    <div class="showcase-features">
+                        <span>🧋 Maskot Comel Eksklusif</span>
+                        <span>🔢 Nombor Siri Peserta Unik</span>
+                        <span>🌧️ Bahan Kalis Peluh & Air</span>
+                        <span>📌 Percuma 4 Safety Pins</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Interactive Medal Showcase Section -->
+    <section id="medals" class="medals section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Koleksi Terhad 2.0</span>
+                <h2 class="section-title">Pingat Finisher <span class="highlight">Magnetic & Spin-able</span></h2>
+                <div class="section-divider"><span>🏅</span></div>
+                <p class="section-subtitle">Inovasi pingat yang boleh berputar 360 darjah dengan elemen magnetik! Putarkan dan lihat kedua-dua bahagian depan dan belakang.</p>
+            </div>
+
+            <!-- Interactive 3D Medal Flipper / Spinner -->
+            <div class="medal-interactive-stage animate-on-scroll">
+                <div class="medal-controls-bar">
+                    <button class="medal-ctrl-btn active" id="btnMedalSpin">🔄 Putar Pingat (Spin)</button>
+                    <button class="medal-ctrl-btn" id="btnMedalFlip">🔁 Terbalikkan Muka (Flip)</button>
+                    <button class="medal-ctrl-btn" id="btnMedalMagnet">🧲 Uji Magnetik</button>
+                </div>
+
+                <div class="medal-3d-scene" id="medal3dScene">
+                    <div class="medal-3d-card" id="medalCard3D">
+                        <!-- Front Face -->
+                        <div class="medal-face medal-face-front">
+                            <img src="images/medal-front.jpg" alt="Muka Depan Pingat Foodie Run 2.0" class="medal-3d-img">
+                            <div class="medal-face-label">Muka Depan (Warna Penuh & Lanyard Corak)</div>
+                        </div>
+                        <!-- Back Face -->
+                        <div class="medal-face medal-face-back">
+                            <img src="images/medal-back.png" alt="Muka Belakang Pingat Foodie Run 2.0" class="medal-3d-img">
+                            <div class="medal-face-label">Muka Belakang (Ukiran Perak Edisi 5KM)</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="medal-hint">💡 Klik butang di atas atau seret tetikus/jari anda pada pingat untuk meneroka perincian 3D!</p>
+            </div>
+
+            <!-- Details Comparison Grid -->
+            <div class="medals-showcase">
+                <div class="medal-card animate-on-scroll" style="--delay: 0.1s">
+                    <div class="medal-glow"></div>
+                    <div class="medal-image-wrapper">
+                        <img src="images/medal-front.jpg" alt="Pingat Depan" class="medal-img" loading="lazy">
+                    </div>
+                    <div class="medal-info">
+                        <h3>🎨 Bahagian Hadapan — Warna Penuh</h3>
+                        <p>Menggambarkan maskot roti ceria dengan latar belakang biru toska serta pelbagai makanan ikonik tempatan. Lanyard cetakan donat dan nasi lemak daun pisang!</p>
+                        <span class="medal-badge">✨ Cetakan Enamel Berkilat</span>
+                    </div>
+                </div>
+
+                <div class="medal-card animate-on-scroll" style="--delay: 0.2s">
+                    <div class="medal-glow"></div>
+                    <div class="medal-image-wrapper">
+                        <img src="images/medal-back.png" alt="Pingat Belakang" class="medal-img" loading="lazy">
+                    </div>
+                    <div class="medal-info">
+                        <h3>🥈 Bahagian Belakang — Ukiran Klasik</h3>
+                        <p>Permukaan logam perak bertekstur dengan ukiran <strong>"FINISHER 5KM"</strong>, logo USIM dan slogan keramat <em>"EAT RUN REPEAT"</em>.</p>
+                        <span class="medal-badge">🧲 Fungsi Magnetic & Spin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule / Timeline -->
+    <section id="schedule" class="schedule section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Atur Cara Hari Larian</span>
+                <h2 class="section-title">Jadual <span class="highlight">Acara</span></h2>
+                <div class="section-divider"><span>📋</span></div>
+                <p class="section-subtitle">Sabtu, 12 Disember 2026 · Dewan Utama FPBU, USIM Nilai</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item animate-on-scroll" style="--delay: 0.05s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">6:00 AM – 7:00 AM</div>
+                        <h4>Pendaftaran & Pengambilan Kit Terakhir</h4>
+                        <p>Kaunter dibuka di Dewan Utama FPBU untuk pengesahan kehadiran, pendaftaran saat akhir dan pengambilan bib.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll" style="--delay: 0.1s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">7:00 AM – 7:25 AM</div>
+                        <h4>Sesi Senamrobik & Pemanasan Badan</h4>
+                        <p>Sesi senamrobik cergas bersama jurulatih kecergasan dan maskot Foodie Run bagi membakar semangat!</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll" style="--delay: 0.15s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">7:30 AM 🏁</div>
+                        <h4>Flag-Off Larian 5KM Foodie Run 2.0</h4>
+                        <p>Pelepasan rasmi peserta oleh Dekan FPBU! Mulakan larian santai dan nikmati setiap hidangan checkpoint.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll" style="--delay: 0.2s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">9:30 AM – 10:30 AM</div>
+                        <h4>Garisan Penamat & Pengalungan Pingat</h4>
+                        <p>Semua pelari melintasi garisan penamat, menerima Pingat Finisher Magnetic & hidangan penamat istimewa.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll" style="--delay: 0.25s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">10:30 AM – 12:00 PM</div>
+                        <h4>Bazar Makanan, Cabutan Bertuah & Persembahan</h4>
+                        <p>Aktiviti santai, reruai makanan tempatan, sesi bergambar di photo booth dan cabutan bertuah menarik!</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-on-scroll" style="--delay: 0.3s">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">12:30 PM</div>
+                        <h4>Majlis Bersurai</h4>
+                        <p>Terima kasih kepada semua peserta dan sukarelawan! EAT · RUN · REPEAT sehingga tahun depan! 🎉</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration CTA Section -->
+    <section id="register" class="register section">
+        <div class="register-bg-effects">
+            <div class="register-circle c1"></div>
+            <div class="register-circle c2"></div>
+            <div class="register-circle c3"></div>
+        </div>
+        <div class="container">
+            <div class="register-content animate-on-scroll">
+                <span class="section-tag light">Tempat Adalah Terhad!</span>
+                <h2 class="register-title">Dah Sedia Nak Makan & Lari?</h2>
+                <p class="register-subtitle">Daftarkan diri anda sekarang untuk <strong>FOODIE RUN 2.0</strong>! Pendaftaran dibuka sehingga <strong>30 November 2026</strong> sahaja.</p>
+                
+                <div class="register-deadline-banner">
+                    <span class="deadline-pulse"></span>
+                    <span class="deadline-text">⏰ Masa Pendaftaran Berbaki:</span>
+                    <div class="deadline-countdown" id="regCountdown2">
+                        <span id="regDays2">00</span>h :
+                        <span id="regHours2">00</span>j :
+                        <span id="regMinutes2">00</span>m :
+                        <span id="regSeconds2">00</span>s
+                    </div>
+                </div>
+
+                <div class="register-price-display">
+                    <div class="register-price-card">
+                        <div class="rpc-label">Harga Biasa</div>
+                        <div class="rpc-price struck-white">RM 50</div>
+                    </div>
+                    <div class="register-price-card early">
+                        <div class="rpc-badge">🔥 JIMAT RM5</div>
+                        <div class="rpc-label">Early Bird Promo</div>
+                        <div class="rpc-price">RM 45</div>
+                    </div>
+                </div>
+
+                <div class="register-includes">
+                    <span>👕 Jersey Dry-Fit</span>
+                    <span>🏅 Pingat Magnetic 3D</span>
+                    <span>📜 E-Sijil Rasmi</span>
+                    <span>🔢 Race Bib</span>
+                    <span>🍜 Makanan di Checkpoint</span>
+                    <span>🎓 Jam Tullabiyah</span>
+                </div>
+
+                <div class="register-buttons">
+                    <a href="https://forms.gle/WTjtDWaDEmkFmA9m6" target="_blank" rel="noopener noreferrer" class="btn btn-register btn-glow direct-register-link">
+                        <span class="btn-register-icon">📝</span>
+                        <span>
+                            <strong>Buka Borang Pendaftaran Rasmi (Google Form)</strong>
+                            <small>Pakej A · RM45 Early Bird · Direct forms.gle</small>
+                        </span>
+                    </a>
+                </div>
+
+                <p class="register-note">✅ Tullabiyah Direkodkan automatik untuk seluruh pelajar USIM yang berdaftar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Ada Kemusykilan?</span>
+                <h2 class="section-title">Soalan <span class="highlight">Lazim (FAQ)</span></h2>
+                <div class="section-divider"><span>❓</span></div>
+                <p class="section-subtitle">Jawapan ringkas untuk persoalan yang sering ditanya mengenai larian ini.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item animate-on-scroll" style="--delay: 0.05s">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Apakah itu Foodie Run 2.0?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Foodie Run 2.0 merupakan acara larian santai (Fun Run) sejauh 5KM anjuran Fakulti Pengajian Bahasa Utama (FPBU), Universiti Sains Islam Malaysia (USIM). Konsep istimewanya ialah menggabungkan senaman dengan makanan enak di setiap checkpoint larian!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item animate-on-scroll" style="--delay: 0.1s">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Bila dan di mana acara ini berlangsung?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Acara ini akan diadakan pada <strong>Sabtu, 12 Disember 2026</strong> bermula jam <strong>7:30 pagi hingga 12:30 tengah hari</strong> bertempat di <strong>Dewan Utama FPBU, USIM</strong> di Nilai, Negeri Sembilan.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item animate-on-scroll" style="--delay: 0.15s">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Berapakah yuran penyertaan dan apa yang diperoleh?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yuran pendaftaran Early Bird hanyalah <strong>RM45</strong> (Harga biasa: RM50). Setiap peserta akan mendapat Jersey rasmi berkualiti, pingat Finisher Magnetic & Spin-able 3D, nombor bib larian, e-sijil rasmi, serta makanan/minuman percuma di setiap checkpoint.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item animate-on-scroll" style="--delay: 0.2s">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Adakah pelajar USIM layak mendapat jam Tullabiyah?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ya! Penyertaan adalah diiktiraf dan <strong>Tullabiyah akan direkodkan</strong> untuk semua mahasiswa USIM yang hadir dan menamatkan larian.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item animate-on-scroll" style="--delay: 0.25s">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Bolehkah saya sekadar berjalan santai (walk) dan bukan berlari?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Boleh sangat! Ini adalah larian santai (Fun Run) tanpa had masa yang ketat. Anda dialu-alukan untuk berjalan, berjoging, mengambil gambar dan menikmati makanan mengikut rentak anda sendiri.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item animate-on-scroll" style="--delay: 0.3s">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Bilakah tarikh tutup pendaftaran?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pendaftaran akan ditutup pada <strong>30 November 2026, jam 11:59 malam</strong>. Namun pendaftaran mungkin ditutup lebih awal sekiranya kuota slot telah penuh.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Enquiry Banner with Direct WhatsApp -->
+    <section class="contact-banner">
+        <div class="container">
+            <div class="contact-inner">
+                <span class="contact-tag">Hubungi Urus Setia</span>
+                <h3>Sebarang Pertanyaan Mengenai Foodie Run 2.0?</h3>
+                <p>Pasukan urus setia kami sedia membantu anda melalui WhatsApp atau panggilan telefon:</p>
+                <div class="contact-cards">
+                    <a href="https://wa.me/60185769637?text=Assalamualaikum%2C%20saya%20ingin%20bertanya%20mengenai%20Foodie%20Run%202.0%20USIM" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <span class="contact-icon">💬</span>
+                        <div class="contact-card-text">
+                            <strong>Iskandar</strong>
+                            <span>018 576 9637</span>
+                            <small class="contact-action">Klik untuk WhatsApp ➔</small>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/60138904022?text=Assalamualaikum%2C%20saya%20ingin%20bertanya%20mengenai%20Foodie%20Run%202.0%20USIM" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <span class="contact-icon">💬</span>
+                        <div class="contact-card-text">
+                            <strong>Fatimah</strong>
+                            <span>013 890 4022</span>
+                            <small class="contact-action">Klik untuk WhatsApp ➔</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>🏃‍♂️ FOODIE<span>RUN</span> 2.0</h3>
+                    <p class="footer-slogan">EAT · RUN · REPEAT</p>
+                    <div class="footer-org-box">
+                        <span class="footer-org-label">Dianjurkan Oleh:</span>
+                        <p class="footer-org-name">Fakulti Pengajian Bahasa Utama (FPBU)</p>
+                        <p class="footer-org">Universiti Sains Islam Malaysia (USIM)</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Pautan Pantas</h4>
+                    <a href="#about">Mengenai</a>
+                    <a href="#package">Pakej & Yuran</a>
+                    <a href="#route-map">Laluan Checkpoint</a>
+                    <a href="#entitlements">Kelengkapan</a>
+                    <a href="#medals">Pingat 3D</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Maklumat Acara</h4>
+                    <a href="#schedule">Atur Cara Hari Larian</a>
+                    <a href="#faq">Soalan Lazim (FAQ)</a>
+                    <a href="javascript:void(0)" class="trigger-sizechart-modal">Carta Saiz Jersey</a>
+                    <a href="https://forms.gle/WTjtDWaDEmkFmA9m6" target="_blank" rel="noopener noreferrer" class="direct-register-link">Borang Google Form</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Talian Urus Setia</h4>
+                    <p>📱 Iskandar: <a href="tel:+60185769637">018-576 9637</a></p>
+                    <p>📱 Fatimah: <a href="tel:+60138904022">013-890 4022</a></p>
+                    <p>📍 Dewan Utama FPBU, USIM, Nilai</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 FOODIE RUN 2.0 · Fakulti Pengajian Bahasa Utama, Universiti Sains Islam Malaysia. Hak Cipta Terpelihara. | EAT · RUN · REPEAT 🍜</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Kembali ke atas">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- 1. Jersey Size Chart Modal -->
+    <div class="modal-overlay" id="sizeChartModal">
+        <div class="modal-box size-modal-box">
+            <button class="modal-close-btn" id="closeSizeModal" aria-label="Tutup">&times;</button>
+            <div class="modal-header">
+                <span class="modal-badge">CARTA SAIZ</span>
+                <h3>Ukuran Jersey Foodie Run 2.0</h3>
+                <p>Fabrik Dry-Fit Microfibre (Potongan Unisex Standard)</p>
+            </div>
+            <div class="size-table-wrapper">
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>Saiz</th>
+                            <th>Ukuran Dada (Inci)</th>
+                            <th>Panjang Baju (Inci)</th>
+                            <th>Lengan (Inci)</th>
+                            <th>Kesesuaian Anggaran</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>XS</strong></td><td>36"</td><td>26"</td><td>7.5"</td><td>40 - 50 kg</td></tr>
+                        <tr><td><strong>S</strong></td><td>38"</td><td>27"</td><td>8.0"</td><td>50 - 60 kg</td></tr>
+                        <tr class="highlight-row"><td><strong>M</strong></td><td>40"</td><td>28"</td><td>8.5"</td><td>60 - 70 kg (Paling Popular)</td></tr>
+                        <tr><td><strong>L</strong></td><td>42"</td><td>29"</td><td>9.0"</td><td>70 - 80 kg</td></tr>
+                        <tr><td><strong>XL</strong></td><td>44"</td><td>30"</td><td>9.5"</td><td>80 - 90 kg</td></tr>
+                        <tr><td><strong>2XL</strong></td><td>46"</td><td>31"</td><td>10.0"</td><td>90 - 100 kg</td></tr>
+                        <tr><td><strong>3XL</strong></td><td>48"</td><td>32"</td><td>10.5"</td><td>100 kg ke atas</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="size-note">💡 <em>Tip: Jika anda gemar memakai baju larian yang lebih longgar dan selesa, disarankan untuk memilih satu saiz lebih besar.</em></p>
+            <div class="modal-action-row">
+                <a href="https://forms.gle/WTjtDWaDEmkFmA9m6" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block direct-register-link">
+                    Pilih Saiz & Buka Google Form ➔
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Full Poster Lightbox Modal -->
+    <div class="modal-overlay" id="posterLightboxModal">
+        <div class="modal-box poster-lightbox-box">
+            <button class="modal-close-btn" id="closePosterLightbox" aria-label="Tutup">&times;</button>
+            <img src="images/poster-main.jpg" alt="Poster Penuh Foodie Run 2.0" class="lightbox-poster-img">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
