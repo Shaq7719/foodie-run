@@ -191,76 +191,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ---------- Interactive 3D Medal Showcase ----------
+    // ---------- Interactive 3D Solid Metal Medal Showcase ----------
     const medalCard3D = document.getElementById('medalCard3D');
-    const btnMedalSpin = document.getElementById('btnMedalSpin');
-    const btnMedalFlip = document.getElementById('btnMedalFlip');
-    const btnMedalMagnet = document.getElementById('btnMedalMagnet');
-    let isFlipped = false;
-    let isSpinning = false;
+    const btnMedalFront = document.getElementById('btnMedalFront');
+    const btnMedalBack = document.getElementById('btnMedalBack');
 
-    if (btnMedalSpin && medalCard3D) {
-        btnMedalSpin.addEventListener('click', () => {
-            isSpinning = !isSpinning;
-            if (isSpinning) {
-                medalCard3D.classList.remove('flipped');
-                medalCard3D.classList.add('spinning');
-                btnMedalSpin.classList.add('active');
-                btnMedalSpin.textContent = '⏹️ Hentikan Putaran';
-            } else {
-                medalCard3D.classList.remove('spinning');
-                btnMedalSpin.classList.remove('active');
-                btnMedalSpin.textContent = '🔄 Putar Pingat (Spin)';
-            }
-        });
+    function showMedalFace(face) {
+        if (!medalCard3D) return;
+        if (face === 'back') {
+            medalCard3D.classList.add('flipped');
+            if (btnMedalBack) btnMedalBack.classList.add('active');
+            if (btnMedalFront) btnMedalFront.classList.remove('active');
+        } else {
+            medalCard3D.classList.remove('flipped');
+            if (btnMedalFront) btnMedalFront.classList.add('active');
+            if (btnMedalBack) btnMedalBack.classList.remove('active');
+        }
     }
 
-    if (btnMedalFlip && medalCard3D) {
-        btnMedalFlip.addEventListener('click', () => {
-            if (isSpinning) {
-                medalCard3D.classList.remove('spinning');
-                isSpinning = false;
-                btnMedalSpin.classList.remove('active');
-                btnMedalSpin.textContent = '🔄 Putar Pingat (Spin)';
-            }
-            isFlipped = !isFlipped;
-            if (isFlipped) {
-                medalCard3D.classList.add('flipped');
-                btnMedalFlip.textContent = '🔁 Muka Belakang (Klik Depan)';
-            } else {
-                medalCard3D.classList.remove('flipped');
-                btnMedalFlip.textContent = '🔁 Terbalikkan Muka (Flip)';
-            }
-        });
+    if (btnMedalFront) {
+        btnMedalFront.addEventListener('click', () => showMedalFace('front'));
+    }
 
-        // Also allow clicking directly on the card to flip
+    if (btnMedalBack) {
+        btnMedalBack.addEventListener('click', () => showMedalFace('back'));
+    }
+
+    if (medalCard3D) {
         medalCard3D.addEventListener('click', () => {
-            if (!isSpinning) {
-                isFlipped = !isFlipped;
-                medalCard3D.classList.toggle('flipped', isFlipped);
-                btnMedalFlip.textContent = isFlipped ? '🔁 Muka Belakang (Klik Depan)' : '🔁 Terbalikkan Muka (Flip)';
-            }
+            const isFlipped = medalCard3D.classList.contains('flipped');
+            showMedalFace(isFlipped ? 'front' : 'back');
         });
     }
 
-    if (btnMedalMagnet && medalCard3D) {
-        btnMedalMagnet.addEventListener('click', () => {
-            medalCard3D.classList.remove('magnetic-test');
-            void medalCard3D.offsetWidth; // Trigger reflow
-            medalCard3D.classList.add('magnetic-test');
-            
-            if (typeof confetti === 'function') {
-                confetti({
-                    particleCount: 25,
-                    spread: 50,
-                    origin: { y: 0.7 }
-                });
-            }
-        });
-    }
-
-    // ---------- Modals Management (Size Chart & Full Poster) ----------
+    // ---------- Modals Management (Size Chart, Route Map & Full Poster) ----------
     const sizeChartModal = document.getElementById('sizeChartModal');
+    const routeMapLightboxModal = document.getElementById('routeMapLightboxModal');
     const posterLightboxModal = document.getElementById('posterLightboxModal');
 
     function openModal(modal) {
@@ -284,6 +250,26 @@ document.addEventListener('DOMContentLoaded', () => {
             openModal(sizeChartModal);
         });
     });
+
+    // Route map lightbox triggers
+    const viewMapFullBtn = document.getElementById('viewMapFullBtn');
+    if (viewMapFullBtn) {
+        viewMapFullBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(routeMapLightboxModal);
+        });
+    }
+
+    const routeMapImg = document.querySelector('.route-map-img');
+    if (routeMapImg) {
+        routeMapImg.style.cursor = 'pointer';
+        routeMapImg.addEventListener('click', () => openModal(routeMapLightboxModal));
+    }
+
+    const closeRouteMapLightbox = document.getElementById('closeRouteMapLightbox');
+    if (closeRouteMapLightbox) {
+        closeRouteMapLightbox.addEventListener('click', () => closeModal(routeMapLightboxModal));
+    }
 
     // Poster lightbox trigger
     const viewPosterFullBtn = document.getElementById('viewPosterFullBtn');
