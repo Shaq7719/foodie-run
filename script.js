@@ -276,9 +276,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (viewPosterFullBtn) {
         viewPosterFullBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            const lightboxImg = document.querySelector('.lightbox-poster-img');
+            if (lightboxImg) lightboxImg.src = 'images/poster-main.jpg';
             openModal(posterLightboxModal);
         });
     }
+
+    // Allow clicking on package poster previews to view in lightbox
+    document.querySelectorAll('.package-poster-img').forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+            const lightboxImg = document.querySelector('.lightbox-poster-img');
+            if (lightboxImg) lightboxImg.src = img.src;
+            openModal(posterLightboxModal);
+        });
+    });
 
     // Close buttons inside modals
     const closeSizeModal = document.getElementById('closeSizeModal');
