@@ -14,7 +14,8 @@ const FOODIE_RUN_CONFIG = {
     
     // Key Event Milestones
     EVENT_DATE: "2026-12-12T07:30:00+08:00",
-    REG_DEADLINE: "2026-11-30T23:59:59+08:00"
+    REG_DEADLINE: "2026-11-30T23:59:59+08:00",
+    EARLY_BIRD_DEADLINE: "2026-11-17T23:59:59+08:00"
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -108,6 +109,92 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------- Countdown Timers ----------
     const eventDate = new Date(FOODIE_RUN_CONFIG.EVENT_DATE).getTime();
     const regDeadline = new Date(FOODIE_RUN_CONFIG.REG_DEADLINE).getTime();
+    const earlyBirdDeadline = new Date(FOODIE_RUN_CONFIG.EARLY_BIRD_DEADLINE).getTime();
+
+    let earlyBirdExpiredHandled = false;
+
+    function handleEarlyBirdExpired() {
+        if (earlyBirdExpiredHandled) return;
+        earlyBirdExpiredHandled = true;
+
+        // 1. Update Early Bird Box in Pakej A
+        const earlyBirdBox = document.getElementById('earlyBirdBox');
+        if (earlyBirdBox) {
+            earlyBirdBox.classList.add('expired');
+            const timerContainer = document.getElementById('earlyBirdTimer');
+            if (timerContainer) {
+                timerContainer.innerHTML = '<div class="ebc-expired-msg">⏱️ Promosi Early Bird telah tamat pada 17 November 2026.<br>Harga Pakej A kini kembali kepada <strong>RM 45 (Harga Asal)</strong>.</div>';
+            }
+            const ebcTitle = document.getElementById('ebcTitle');
+            if (ebcTitle) ebcTitle.textContent = 'Promosi Early Bird Telah Tamat';
+            const ebcStatusBadge = document.getElementById('ebcStatusBadge');
+            if (ebcStatusBadge) {
+                ebcStatusBadge.textContent = 'TAMAT';
+                ebcStatusBadge.style.background = '#e2e8f0';
+                ebcStatusBadge.style.color = '#64748b';
+            }
+        }
+
+        // 2. Update Pricing Dual Box in Pakej A
+        const normalBox = document.getElementById('pkgAPriceNormalBox');
+        const normalVal = document.getElementById('pkgAPriceNormalVal');
+        const normalNote = document.getElementById('pkgAPriceNormalNote');
+        const earlyBox = document.getElementById('pkgAPriceEarlyBox');
+        const earlyBadge = document.getElementById('pkgAEarlyBadge');
+        const earlyVal = document.getElementById('pkgAPriceEarlyVal');
+        const earlyNote = document.getElementById('pkgAPriceEarlyNote');
+
+        if (normalBox && normalVal) {
+            normalBox.classList.add('active-price');
+            normalVal.classList.remove('struck');
+            normalVal.classList.add('glow');
+            if (normalNote) normalNote.textContent = 'Harga Semasa';
+        }
+
+        if (earlyBox) {
+            earlyBox.classList.remove('active');
+            earlyBox.classList.add('expired');
+            if (earlyBadge) {
+                earlyBadge.textContent = 'TELAH TAMAT';
+                earlyBadge.style.background = '#64748b';
+            }
+            if (earlyVal) {
+                earlyVal.classList.remove('glow');
+                earlyVal.classList.add('struck');
+            }
+            if (earlyNote) earlyNote.textContent = 'Tamat 17 Nov 2026';
+        }
+
+        // 3. Update Pakej A Action Button
+        const pkgARegBtn = document.getElementById('pkgARegBtn');
+        if (pkgARegBtn) {
+            pkgARegBtn.innerHTML = 'Daftar Pakej A (RM45) ➔';
+        }
+
+        // 4. Update Hero Pricing Summary
+        const heroPkgAAmt = document.getElementById('heroPkgAAmt');
+        if (heroPkgAAmt) {
+            heroPkgAAmt.innerHTML = 'Harga Semasa: <strong>RM 45</strong>';
+        }
+        const heroEbTimer = document.getElementById('heroEbTimer');
+        if (heroEbTimer) {
+            heroEbTimer.innerHTML = '⏱️ Early Bird Tamat (Kini RM45)';
+            heroEbTimer.style.borderColor = 'rgba(255,255,255,0.2)';
+            heroEbTimer.style.color = 'rgba(255,255,255,0.7)';
+            heroEbTimer.style.background = 'rgba(255,255,255,0.08)';
+        }
+
+        // 5. Update Stats Ticker
+        const tickerPkgAPrice = document.getElementById('tickerPkgAPrice');
+        const tickerPkgALabel = document.getElementById('tickerPkgALabel');
+        if (tickerPkgAPrice) {
+            tickerPkgAPrice.setAttribute('data-target', '45');
+            tickerPkgAPrice.textContent = '45';
+        }
+        if (tickerPkgALabel) {
+            tickerPkgALabel.textContent = 'Pakej A (Harga Biasa)';
+        }
+    }
 
     function updateCountdowns() {
         const now = new Date().getTime();
@@ -152,6 +239,30 @@ document.addEventListener('DOMContentLoaded', () => {
             ['regDays', 'regHours', 'regMinutes', 'regSeconds', 'regDays2', 'regHours2', 'regMinutes2', 'regSeconds2'].forEach(id => {
                 setElementText(id, '00');
             });
+        }
+
+        // 3. Early Bird Countdown (17/11/2026 - 11:59PM)
+        const ebDiff = earlyBirdDeadline - now;
+        if (ebDiff > 0) {
+            const ebDays = Math.floor(ebDiff / (1000 * 60 * 60 * 24));
+            const ebHours = Math.floor((ebDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const ebMinutes = Math.floor((ebDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const ebSeconds = Math.floor((ebDiff % (1000 * 60)) / 1000);
+
+            // Update Early Bird Box inside Pakej A card
+            setElementText('ebDays', formatZero(ebDays));
+            setElementText('ebHours', formatZero(ebHours));
+            setElementText('ebMinutes', formatZero(ebMinutes));
+            setElementText('ebSeconds', formatZero(ebSeconds));
+
+            // Update Hero badge countdown
+            const heroEbCountdown = document.getElementById('heroEbCountdown');
+            if (heroEbCountdown) {
+                heroEbCountdown.textContent = `${formatZero(ebDays)}h ${formatZero(ebHours)}j ${formatZero(ebMinutes)}m ${formatZero(ebSeconds)}s`;
+            }
+        } else {
+            // Early Bird has expired -> Switch back to original price RM45!
+            handleEarlyBirdExpired();
         }
     }
 

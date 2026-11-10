@@ -175,9 +175,10 @@
 
             <!-- Pricing Highlights in Hero -->
             <div class="hero-price-summary animate-on-scroll">
-                <div class="h-price-badge">
+                <div class="h-price-badge" id="heroPkgABadge">
                     <span class="hp-pkg">Pakej A (Dengan Jersey)</span>
-                    <span class="hp-amt">Early Bird: <strong>RM 35</strong> <small>(Biasa: RM45)</small></span>
+                    <span class="hp-amt" id="heroPkgAAmt">Early Bird: <strong>RM 35</strong> <small>(Biasa: RM45)</small></span>
+                    <span class="hp-eb-timer" id="heroEbTimer">⚡ Early Bird Tamat: <span id="heroEbCountdown">--h --j --m --s</span></span>
                 </div>
                 <div class="h-price-badge">
                     <span class="hp-pkg">Pakej B (Tanpa Jersey)</span>
@@ -216,8 +217,8 @@
             </div>
             <div class="stat-divider">👕</div>
             <div class="stat-item">
-                <span class="stat-number" data-target="35">0</span><span class="stat-suffix"> RM</span>
-                <span class="stat-label">Pakej A (Early Bird)</span>
+                <span class="stat-number" id="tickerPkgAPrice" data-target="35">0</span><span class="stat-suffix"> RM</span>
+                <span class="stat-label" id="tickerPkgALabel">Pakej A (Early Bird)</span>
             </div>
             <div class="stat-divider">🏅</div>
             <div class="stat-item">
@@ -321,17 +322,47 @@
                         <p class="package-desc">Pakej penuh all-in-one! Dapatkan Jersey eksklusif KZ Apparel berserta pingat logam 3D, bib, e-sijil dan santapan makanan di semua checkpoint.</p>
                     </div>
 
-                    <div class="pricing-dual-box">
-                        <div class="price-box normal">
-                            <span class="price-type">HARGA BIASA</span>
-                            <div class="price-val struck">RM 45</div>
-                            <span class="price-note">Harga asal</span>
+                    <!-- Early Bird Countdown Box -->
+                    <div class="early-bird-countdown-box" id="earlyBirdBox">
+                        <div class="ebc-header">
+                            <span class="ebc-flame">🔥</span>
+                            <span class="ebc-title" id="ebcTitle">Early Bird Berakhir 17 Nov 2026</span>
+                            <span class="ebc-date" id="ebcStatusBadge">JIMAT RM10</span>
                         </div>
-                        <div class="price-box early active">
-                            <span class="early-badge">🔥 JIMAT RM10!</span>
-                            <span class="price-type">EARLY BIRD</span>
-                            <div class="price-val glow">RM 35</div>
-                            <span class="price-note">Promosi pendaftaran awal</span>
+                        <div class="ebc-timer" id="earlyBirdTimer">
+                            <div class="ebc-unit-box">
+                                <span class="ebc-num" id="ebDays">00</span>
+                                <span class="ebc-lbl">Hari</span>
+                            </div>
+                            <span class="ebc-colon">:</span>
+                            <div class="ebc-unit-box">
+                                <span class="ebc-num" id="ebHours">00</span>
+                                <span class="ebc-lbl">Jam</span>
+                            </div>
+                            <span class="ebc-colon">:</span>
+                            <div class="ebc-unit-box">
+                                <span class="ebc-num" id="ebMinutes">00</span>
+                                <span class="ebc-lbl">Minit</span>
+                            </div>
+                            <span class="ebc-colon">:</span>
+                            <div class="ebc-unit-box">
+                                <span class="ebc-num" id="ebSeconds">00</span>
+                                <span class="ebc-lbl">Saat</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-dual-box" id="pkgAPricingDualBox">
+                        <div class="price-box normal" id="pkgAPriceNormalBox">
+                            <span class="price-type" id="pkgAPriceNormalType">HARGA BIASA</span>
+                            <div class="price-val struck" id="pkgAPriceNormalVal">RM 45</div>
+                            <span class="price-note" id="pkgAPriceNormalNote">Harga asal</span>
+                        </div>
+                        <div class="price-box early active" id="pkgAPriceEarlyBox">
+                            <span class="early-badge" id="pkgAEarlyBadge">🔥 JIMAT RM10!</span>
+                            <span class="price-type" id="pkgAPriceEarlyType">EARLY BIRD</span>
+                            <div class="price-val glow" id="pkgAPriceEarlyVal">RM 35</div>
+                            <span class="price-note" id="pkgAPriceEarlyNote">Tamat 17 Nov 2026</span>
                         </div>
                     </div>
 
@@ -381,7 +412,7 @@
                     </div>
 
                     <div class="package-card-actions">
-                        <a href="https://forms.gle/WTjtDWaDEmkFmA9m6" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-glow btn-block direct-register-link">
+                        <a href="https://forms.gle/WTjtDWaDEmkFmA9m6" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-glow btn-block direct-register-link" id="pkgARegBtn">
                             Daftar Pakej A (RM35 Early Bird) ➔
                         </a>
                         <button class="btn btn-outline btn-block trigger-sizechart-modal">

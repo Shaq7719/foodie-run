@@ -544,6 +544,20 @@ button {
     text-decoration: line-through;
     margin-left: 4px;
 }
+
+.hp-eb-timer {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent-yellow);
+    background: rgba(255, 152, 0, 0.2);
+    border: 1px solid rgba(255, 152, 0, 0.4);
+    padding: 3px 10px;
+    border-radius: 50px;
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
 .hero-tags {
     display: flex;
     gap: 10px;
@@ -1219,6 +1233,113 @@ button {
     line-height: 1.6;
 }
 
+/* Early Bird Countdown Box in Pakej A */
+.early-bird-countdown-box {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border: 1.5px solid #fb923c;
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(251, 146, 60, 0.16);
+    transition: var(--transition);
+}
+
+.early-bird-countdown-box.expired {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    box-shadow: none;
+}
+
+.ebc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.ebc-flame {
+    font-size: 1.15rem;
+    animation: flamePulse 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes flamePulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.25); }
+}
+
+.ebc-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #c2410c;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.ebc-date {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #ea580c;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 3px 10px;
+    border-radius: 50px;
+    border: 1px solid rgba(251, 146, 60, 0.3);
+}
+
+.ebc-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.ebc-unit-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    border-radius: 8px;
+    padding: 4px 8px;
+    min-width: 44px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(251, 146, 60, 0.25);
+}
+
+.ebc-num {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #9a3412;
+    line-height: 1.1;
+}
+
+.ebc-lbl {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.ebc-colon {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #c2410c;
+    margin-bottom: 8px;
+}
+
+.ebc-expired-msg {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    text-align: center;
+    padding: 6px 4px;
+    line-height: 1.45;
+}
+
 .pricing-dual-box {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1231,6 +1352,7 @@ button {
     border-radius: var(--radius-md);
     text-align: center;
     position: relative;
+    transition: var(--transition);
 }
 
 .price-box.normal {
@@ -1238,10 +1360,23 @@ button {
     border: 1px solid #e2e8f0;
 }
 
+.price-box.normal.active-price {
+    background: linear-gradient(135deg, #f0fdf4, #e0f2fe);
+    border: 2px solid var(--primary);
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.15);
+}
+
 .price-box.early {
     background: linear-gradient(135deg, #e0f7fa, #ffebee);
     border: 2px solid var(--primary);
     box-shadow: 0 4px 15px rgba(0,188,212,0.15);
+}
+
+.price-box.early.expired {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    box-shadow: none;
+    opacity: 0.7;
 }
 
 .early-badge {
