@@ -18,3 +18,4 @@ Official promotional website for **FOODIE RUN 2.0**, organized by Fakulti Pengaj
 
 ## Deployment
 Hosted live via **GitHub Pages**.
+Link Web: https://shaq7719.github.io/foodie-run/ 
